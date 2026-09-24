@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Instance Mover",
+	"Description": "Editor mode for picking individual Instanced / Hierarchical Instanced Static Mesh instances in the level viewport and moving, rotating, scaling, duplicating, deleting and surface-snapping them with the transform gizmo.",
+	"Category": "Editor",
+	"CreatedBy": "",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "InstanceMover",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	]
+}
