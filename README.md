@@ -1,13 +1,37 @@
 # Instance Mover
 
-Editor mode for picking **individual instances** of Instanced Static Mesh (ISM) and Hierarchical Instanced Static Mesh
-(HISM) components in the level viewport and moving them with the normal transform gizmo.
+Instance Mover is an Unreal Engine editor mode for selecting **individual instances** of Instanced Static Mesh (ISM)
+and Hierarchical Instanced Static Mesh (HISM) components in the level viewport. Move, rotate, scale, duplicate, delete,
+or snap them to a surface with the familiar viewport controls.
 
 Editor-only: one `Editor` module, no runtime code, nothing cooked.
 
-## Using it
+## Install
 
-Open **Modes → Instance Mover** in the level editor toolbar.
+1. Copy this folder to `YourProject/Plugins/InstanceMover/`, so the project contains
+   `YourProject/Plugins/InstanceMover/InstanceMover.uplugin`.
+2. Open the project in Unreal Editor and build the plugin if prompted. If it is disabled, enable **Instance Mover**
+   under **Edit → Plugins** and restart the editor.
+
+## Quick start
+
+![Unreal Editor with Instance Mover active: one ISM cube selected in the viewport, with its wire box, transform gizmo, and mode panel visible](assets/quick-start.png)
+
+*Instance Mover in Unreal Editor 5.7. One cube instance is selected; the other cubes belong to the same ISM component.*
+
+1. Open a level that contains an actor with an ISM or HISM component and at least one instance. A component added in a
+   Blueprint's Components panel works; a component created by a construction script cannot be edited in this mode.
+2. In the level editor toolbar, open **Modes → Instance Mover**.
+3. Click one instance in the viewport. An orange wire box shows the selected instance, and the transform gizmo appears
+   at the selection pivot.
+4. Drag the gizmo to move it. Use **W**, **E**, or **R** to switch between move, rotate, and scale. Optionally click
+   **Snap to Surface** in the Instance Mover panel to drop it onto the surface below.
+
+If a click selects the owning actor instead, see [How picking works](#how-picking-works).
+
+## Controls
+
+These controls work while **Instance Mover** is active:
 
 | Action | Input |
 |---|---|
@@ -69,5 +93,4 @@ live in the `UInstanceMoverSettings` constructor:
 ## Tests
 
 `Source/InstanceMover/Private/Tests/InstanceMoverTest.cpp` — gizmo delta math, ray picking, surface snap, selection
-bookkeeping — registered under `PetwallParade.InstanceMover.*`, so the project's headless automation command
-(see the root `CLAUDE.md`) runs them.
+bookkeeping — registered under `PetwallParade.InstanceMover.*` for Unreal's automation test runner.
